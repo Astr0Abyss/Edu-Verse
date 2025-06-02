@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EduVerse | Add Course</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- Color Switcher Mockup -->
+<link href="css/color-switcher-design.css" rel="stylesheet">
+<!-- Color Themes -->
+<link id="theme-color-file" href="css/color-themes/theme-one.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<script src="js/auth.js"></script>
+<script src="js/navbar-auth.js"></script>
+
+<style>
+.add-course-form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.add-course-form .form-group {
+    margin-bottom: 25px;
+}
+
+.add-course-form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.add-course-form input[type="text"],
+.add-course-form input[type="number"],
+.add-course-form textarea,
+.add-course-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-course-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.add-course-form .btn-submit {
+    background: #ff5773;
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-course-form .btn-submit:hover {
+    background: #ff3956;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 87, 115, 0.3);
+}
+
+.preview-image {
+    max-width: 200px;
+    margin-top: 10px;
+    display: none;
+}
+</style>
+
+</head>
+
+<body class="hidden-bar-wrapper">
+
+<div class="page-wrapper">
+    <!-- Main Header-->
+    <header class="main-header">
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="outer-container">
+                <div class="clearfix">
+                    <div class="pull-left logo-box">
+                        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
+    </header>
+    <!--End Main Header -->
+    
+    <!-- Add Course Section -->
+    <div class="content-side">
+        <div class="auto-container">
+            <div class="add-course-form">
+                <h2 class="mb-4">Add New Course</h2>
+                <form id="addCourseForm">
+                    <div class="form-group">
+                        <label>Course Title</label>
+                        <input type="text" id="courseTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Course Category</label>
+                        <select id="courseCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Development">Development</option>
+                            <option value="Business">Business</option>
+                            <option value="Design">Design</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Health">Health & Fitness</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Course Duration (hours)</label>
+                        <input type="number" id="courseDuration" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Course Price ($)</label>
+                        <input type="number" id="coursePrice" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Course Description</label>
+                        <textarea id="courseDescription" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Course Image URL</label>
+                        <input type="text" id="courseImage" required>
+                        <img id="imagePreview" class="preview-image">
+                    </div>
+                    
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn-submit">Add Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Add Course Section -->
+    
+</div>
+<!-- End pagewrapper -->
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/script.js"></script>
+<script src="js/color-settings.js"></script>
+
+<script>
+// Check if user is logged in and is an instructor
+document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('Current user:', currentUser); // Debug log
+    
+    if (!currentUser) {
+        alert('Please login to add courses');
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    if (currentUser.role !== 'instructor') {
+        alert('Only instructors can add courses');
+        window.location.href = 'index.html';
+        return;
+    }
+});
+
+// Preview image when URL is entered
+document.getElementById('courseImage').addEventListener('input', function(e) {
+    const preview = document.getElementById('imagePreview');
+    const imageUrl = e.target.value;
+    if(imageUrl) {
+        preview.src = imageUrl;
+        preview.style.display = 'block';
+    } else {
+        preview.style.display = 'none';
+    }
+});
+
+// Handle form submission
+document.getElementById('addCourseForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    // Get form values
+    const course = {
+        id: Date.now(), // Unique ID for the course
+        title: document.getElementById('courseTitle').value,
+        category: document.getElementById('courseCategory').value,
+        duration: document.getElementById('courseDuration').value,
+        price: document.getElementById('coursePrice').value,
+        description: document.getElementById('courseDescription').value,
+        image: document.getElementById('courseImage').value,
+        instructor: `${currentUser.firstName} ${currentUser.lastName}`,
+        date: new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit'
+        })
+    };
+    
+    // Get existing courses or initialize empty array
+    let courses = JSON.parse(localStorage.getItem('courses')) || [];
+    
+    // Add new course
+    courses.push(course);
+    
+    // Save back to localStorage
+    localStorage.setItem('courses', JSON.stringify(courses));
+    
+    // Show success message
+    alert('Course added successfully!');
+    
+    // Redirect to manage courses page
+    window.location.href = 'manage-course.html';
+});
+</script>
+
+</body>
+</html> 

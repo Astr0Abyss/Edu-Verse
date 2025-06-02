@@ -1,0 +1,281 @@
+.listModule--tinted {
+    background-color: #fff;
+    color: #06040e
+}
+
+.listModule .headline,
+.listModule .list {
+    grid-column: 1/-1
+}
+
+.listModule .grid {
+    row-gap: 0
+}
+
+.listModule__content {
+    grid-column: 1/-1
+}
+
+@media(min-width: 37.5em) {
+    .listModule--inline .listModule__content {
+        align-self: start;
+        grid-column: 1/span 6
+    }
+}
+
+@media(min-width: 60em) {
+    .listModule--inline .listModule__content {
+        grid-column: auto/span 5
+    }
+}
+
+.listModule--stacked .listModule__content {
+    margin-block-end: var(--space-5)
+}
+
+.listModule .list {
+    --list-module-column-gap: var(--space-fixed-2);
+    --list-module-row-gap: 1.5em;
+    align-self: start;
+    column-gap: var(--space-gutter);
+    display: grid;
+    row-gap: var(--list-module-row-gap)
+}
+
+.listModule .list:has(.listItem__body) {
+    --list-module-column-gap: var(--space-fixed-4);
+    --list-module-row-gap: 3.5rem
+}
+
+.listModule .list:not(:has(.listItem__body)) {
+    --list-item-icon-size: var(--list-item-icon-size--small)
+}
+
+.listModule--inline .list {
+    margin-block-start: var(--space-4)
+}
+
+@media(min-width: 37.5em) {
+    .listModule--inline .list {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(min-width: 60em) {
+    .listModule--inline .list {
+        grid-column: 7/span 6;
+        margin-block-start: var(--space-fixed-1)
+    }
+}
+
+@media(min-width: 60em) {
+    .listModule--inline:has(.textLockup__eyebrow) .list {
+        margin-block-start: calc(var(--fz-eyebrow-1)*var(--lh-eyebrow-1) + var(--space-fixed-2) + var(--fz-headline-1)*(var(--lh-headline-1) - 1))
+    }
+}
+
+@media(min-width: 37.5em) {
+    .listModule--inline .list--1up {
+        grid-template-columns: 1fr
+    }
+}
+
+.listModule--inline .list:has(.listItem__body) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto
+}
+
+@media(min-width: 37.5em) {
+    .listModule--stacked .list--2up {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+.listModule--stacked .list--3up {
+    grid-template-columns: 1fr
+}
+
+@media(min-width: 60em) {
+    .listModule--stacked .list--3up {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+.listModule--stacked .list--4up {
+    grid-template-columns: 1fr
+}
+
+@media(min-width: 37.5em) {
+    .listModule--stacked .list--4up {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(min-width: 60em) {
+    .listModule--stacked .list--4up {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+.listModule .list--ordered {
+    counter-reset: indexed-list
+}
+
+.listItem {
+    align-items: start;
+    counter-increment: indexed-list;
+    line-height: var(--lh-body-1);
+    margin-inline-start: calc(var(--list-item-icon-size) + var(--list-item-column-gap));
+    position: relative
+}
+
+.list:not(:has(.listItem__body)) .listItem {
+    --list-item-column-gap: var(--space-fixed-1)
+}
+
+@media(min-width: 80em) {
+    .list:not(:has(.listItem__body)) .listItem {
+        --list-item-column-gap: var(--space-fixed-2)
+    }
+}
+
+.list:has(.listItem__body) .listItem {
+    --list-item-column-gap: var(--space-fixed-3)
+}
+
+@media(min-width: 37.5em) {
+    .list:has(.listItem__body) .listItem {
+        --list-item-column-gap: var(--space-fixed-4)
+    }
+}
+
+.list li::before,
+.list-group li::before {
+    align-items: center;
+    aspect-ratio: 1/1;
+    background-color: var(--color-bullet-background);
+    border-radius: var(--space-fixed-1);
+    color: var(--color-surface-color);
+    display: flex;
+    font-size: .875rem;
+    font-weight: var(--fw-eyebrow-1);
+    justify-content: center;
+    line-height: var(--lh-eyebrow-1);
+    margin-top: calc((var(--list-item-icon-size) - var(--fz-body-1)*var(--lh-body-1))/-2);
+    position: absolute;
+    transform: translateX(calc(-1 * (100% + var(--list-item-column-gap))));
+    width: var(--list-item-icon-size);
+    margin-top: 0
+}
+
+.list.list--chevron li.listItem {
+    --list-item-column-gap: var(--space-fixed-1);
+    align-items: center;
+    display: grid;
+    margin-inline-start: 0
+}
+
+ul.list--chevron li::before {
+    content: none
+}
+
+ul.list--chevron li a::after {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 12'%3E%3Cpath fill='%2306040E' d='m11.405 4.261-6.019 6.02a.75.75 0 0 1-1.06 0L.97 6.904a.75.75 0 0 1 0-1.06l.937-.937a.75.75 0 0 1 1.059 0l1.91 1.852 4.536-4.48a.75.75 0 0 1 1.059 0l.935.916a.752.752 0 0 1 0 1.065Z'/%3E%3C/svg%3E");
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.257.028A.41.41 0 0 0 .07.162.332.332 0 0 0 0 .364v7.272c0 .072.024.142.07.202a.41.41 0 0 0 .187.134c.076.028.16.035.241.021a.438.438 0 0 0 .213-.1l4.167-3.636a.365.365 0 0 0 .09-.118.324.324 0 0 0 0-.278.365.365 0 0 0-.09-.118L.71.106A.439.439 0 0 0 .498.007a.473.473 0 0 0-.24.02Z" fill="%2306040E"/></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: .3125rem;
+    content: "";
+    margin-top: calc((var(--fz-body-1)*var(--lh-body-1) - var(--list-item-icon-size))/2);
+    display: inline-block;
+    height: 1em;
+    margin-top: 0;
+    vertical-align: middle;
+    width: var(--list-item-icon-size)
+}
+
+:where(ol.list,
+ol.list-group__list) li {
+    counter-increment: indexed-list;
+    position: relative
+}
+
+:where(ol.list,
+ol.list-group__list) li::before {
+    content: counter(indexed-list)
+}
+
+ul.list--checkmark li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 12'%3E%3Cpath fill='%2306040E' d='m11.405 4.261-6.019 6.02a.75.75 0 0 1-1.06 0L.97 6.904a.75.75 0 0 1 0-1.06l.937-.937a.75.75 0 0 1 1.059 0l1.91 1.852 4.536-4.48a.75.75 0 0 1 1.059 0l.935.916a.752.752 0 0 1 0 1.065Z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: .75rem;
+    content: ""
+}
+
+ul.list--checkmark .listItem--unchecked::before {
+    background-image: none
+}
+
+.listItem>* {
+    flex: 1
+}
+
+@media(hover: hover) {
+    .listItem:hover .btn__text {
+        text-decoration: underline
+    }
+}
+
+.listItem__title:has(+.listItem__body) {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.5
+}
+
+@media(min-width: 37.5em) {
+    .listItem__title:has(+.listItem__body) {
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 1.1
+    }
+}
+
+ul.list li.list-group::before {
+    content: initial
+}
+
+.list-group__eyebrow {
+    margin-bottom: 1.25rem;
+    opacity: .75
+}
+
+.list-group__icon {
+    transform: rotate(-90deg)
+}
+
+.list-group__link {
+    flex: initial
+}
+
+.list-group__list {
+    display: grid;
+    row-gap: var(--list-module-row-gap)
+}
+
+.list-group__list-item {
+    align-items: center;
+    column-gap: var(--space-fixed-1);
+    display: grid;
+    justify-items: start
+}
+
+.list-group__logo {
+    height: 1.75rem;
+    margin-bottom: var(--space-3);
+    mix-blend-mode: multiply;
+    width: auto
+}
+
+/*# sourceMappingURL=list.css.map */

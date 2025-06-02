@@ -1,0 +1,269 @@
+.quote {
+    --padding-block: 0;
+    --quote-gutter-x: var(--space-outer);
+    background-color: var(--color-surface-background);
+    color: var(--color-surface-color);
+    overflow: hidden;
+    padding-block-end: 0;
+    padding-block-start: var(--space-3);
+    position: relative
+}
+
+@media(min-width: 60em) {
+    .quote {
+        --padding-block: var(--space-4);
+        padding-block-start: 0
+    }
+}
+
+@media(min-width: 117em) {
+    .quote {
+        --quote-gutter-x: calc((100vw - var(--maw)) / 2)
+    }
+}
+
+.quote:not(:has(.quote__media)) {
+    padding-block: calc(var(--space-outer-v)/2)
+}
+
+@media(min-width: 60em) {
+    .quote:not(:has(.quote__media)) {
+        padding-block: calc(var(--space-outer-v)/2)
+    }
+}
+
+.quote.section--dome {
+    padding-block-start: calc(var(--space-3) + var(--space-dome-height))
+}
+
+.quote>.grid {
+    row-gap: var(--space-fixed-3)
+}
+
+.quote__body {
+    margin-top: var(--space-3)
+}
+
+@media(min-width: 60em) {
+    .quote__body {
+        margin-top: var(--space-4)
+    }
+}
+
+.quote__citation {
+    line-height: 1.5;
+    margin-top: 2.5rem
+}
+
+.quote__citationDescriptor {
+    color: var(--color-text-soft)
+}
+
+.quote__content {
+    container-name: quote-content;
+    container-type: inline-size;
+    grid-column: 1/-1;
+    row-gap: 0;
+    width: 100%
+}
+
+@media(min-width: 37.5em) {
+    .quote__content {
+        grid-column: 1/span 6;
+        z-index: 10
+    }
+}
+
+@media(min-width: 60em) {
+    .quote__content {
+        align-self: center;
+        grid-column: 1/-1;
+        grid-row: 1;
+        padding-block: var(--padding-block);
+        position: relative
+    }
+}
+
+.quote__content>* {
+    grid-column: 1/-1
+}
+
+@media(min-width: 60em) {
+    .quote__content>* {
+        grid-column: 7/span 5
+    }
+}
+
+@media(min-width: 37.5em) {
+    .quote:not(:has(.quote__media)) .quote__content>* {
+        grid-column: 1/span 6
+    }
+}
+
+@media(min-width: 60em) {
+    .quote:not(:has(.quote__media)) .quote__content>* {
+        grid-column: 1/span 5
+    }
+}
+
+@media(min-width: 80em) {
+    .quote:not(:has(.quote__media)) .quote__content>* {
+        grid-column-start: 4
+    }
+}
+
+.quote__cta {
+    justify-self: start;
+    margin-top: var(--space-3)
+}
+
+@media(min-width: 60em) {
+    .quote__cta {
+        margin-top: var(--space-4)
+    }
+}
+
+.quote__decorations {
+    grid-column: 1/-1;
+    grid-row: 2;
+    margin-inline-start: calc(-1*var(--quote-gutter-x));
+    overflow: hidden;
+    width: 100vw
+}
+
+@media(min-width: 37.5em) {
+    .quote__decorations {
+        display: grid;
+        inset: 0;
+        justify-items: end;
+        margin-inline-start: initial;
+        position: absolute;
+        width: auto;
+        z-index: 0
+    }
+}
+
+@media(min-width: 60em) {
+    .quote__decorations {
+        justify-items: start
+    }
+}
+
+@media(min-width: 80em) {
+    .quote__decorations {
+        justify-items: end
+    }
+}
+
+@media(max-width: 37.4375em) {
+    .quote:not(:has(.quote__media)) .quote__decorations {
+        display: none
+    }
+}
+
+@media(min-width: 37.5em) {
+    .quote:not(:has(.quote__media)) .quote__decorations {
+        justify-items: center;
+        translate: calc(2*var(--grid-col-width))
+    }
+}
+
+.quote__decoration {
+    height: 100%;
+    width: auto
+}
+
+.quote__decoration--large {
+    height: 110%;
+    transform: translateX(5%) translateY(-5%)
+}
+
+@media(max-width: 37.4375em) {
+    .quote__decoration--large {
+        display: none
+    }
+}
+
+.quote__decoration--small {
+    height: auto;
+    transform: translateX(-5%) translateY(10%);
+    width: 110%
+}
+
+@media(min-width: 37.5em) {
+    .quote__decoration--small {
+        display: none
+    }
+}
+
+.quote__media {
+    align-self: end;
+    grid-column: 1/-1;
+    width: 100vw
+}
+
+@media(max-width: 59.9375em) {
+    .quote__media {
+        grid-row: 2;
+        margin-left: calc(-1*var(--space-outer))
+    }
+}
+
+@media(min-width: 37.5em) {
+    .quote__media {
+        align-self: initial;
+        grid-column: 1/span 5;
+        width: calc(100% + var(--space-outer));
+        z-index: 1
+    }
+}
+
+@media(min-width: 60em) {
+    .quote__media {
+        align-self: end;
+        grid-column: 1/span 5;
+        grid-row: 1;
+        margin-inline-start: calc(-1*var(--quote-gutter-x));
+        width: calc(var(--quote-gutter-x) + 5*var(--grid-col-width) + 4*var(--space-gutter))
+    }
+}
+
+.quote__media .frame {
+    border-radius: 0
+}
+
+.quote__text {
+    font-size: clamp(1.625rem, 3vw, 2.5rem);
+    font-style: normal;
+    margin-block-start: var(--space-fixed-2);
+    text-wrap: balance
+}
+
+@media(min-width: 37.5em) {
+    .quote__text {
+        margin-block-start: var(--space-fixed-3)
+    }
+}
+
+@media(min-width: 60em) {
+    .quote__text {
+        grid-column-end: span 6;
+        margin-block-start: 0
+    }
+}
+
+.quote__text>:first-child::before {
+    content: "“"
+}
+
+@media(min-width: 60em) {
+    .quote__text>:first-child::before {
+        margin-left: -0.345em
+    }
+}
+
+.quote__text>:last-child::after {
+    content: "”"
+}
+
+/*# sourceMappingURL=quote.css.map */

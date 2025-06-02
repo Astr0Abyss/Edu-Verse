@@ -1,0 +1,353 @@
+.theme-blue {
+    --color-decoration-light: #F5F5F5;
+    --color-decoration-base: #E1EDF2;
+    --color-decoration-dark: #10242F
+}
+
+.theme-light-blue {
+    --color-decoration: #A5C8D8
+}
+
+.theme-caramel {
+    --color-decoration-light: #F5F5F5;
+    --color-decoration-base: #F6DDC4;
+    --color-decoration-dark: #452623
+}
+
+.theme-light-caramel {
+    --color-decoration: #E39A4D
+}
+
+.theme-light-gray {
+    --color-decoration-light: #FFF;
+    --color-decoration-base: #9C9C9C;
+    --color-decoration-dark: #06040E
+}
+
+.theme-violet {
+    --color-decoration-light: #F5F5F5;
+    --color-decoration-base: #E5D7F5;
+    --color-decoration-dark: #1F1738
+}
+
+.theme-light-violet {
+    --color-decoration: #CBB0EB
+}
+
+.ctaBanner {
+    padding-block: 6.5rem;
+    position: relative
+}
+
+@media(max-width: 59.9375em) {
+    .ctaBanner {
+        overflow-x: clip
+    }
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner {
+        padding-block: 10rem
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner {
+        padding-block: 6.5rem
+    }
+}
+
+@media(min-width: 80em) {
+    .ctaBanner {
+        padding-block: 7.5rem
+    }
+}
+
+.ctaBanner__content {
+    background-color: #fff;
+    border-radius: var(--bdrs-banner);
+    grid-column: 1/-1;
+    padding: var(--space-fixed-3);
+    padding-block-start: 3.5rem;
+    position: relative;
+    text-align: center;
+    z-index: 10
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__content {
+        padding-block: var(--space-5);
+        padding-inline: 0
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__content {
+        grid-column: 2/-2
+    }
+}
+
+.ctaBanner__content>* {
+    grid-column: 1/-1
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__content>* {
+        grid-column: 2/-2
+    }
+}
+
+.ctaBanner__content .text>:first-child {
+    margin: 0
+}
+
+.ctaBanner__content .textLockup .grid {
+    --space-columns: 4;
+    grid-template-columns: repeat(var(--space-columns), minmax(10px, 1fr))
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__content .textLockup .grid {
+        --space-columns: 8
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__content .textLockup .grid {
+        --space-columns: 10
+    }
+}
+
+.ctaBanner.theme-light-gray {
+    --color-button-secondary-background: #F5F5F5
+}
+
+.ctaBanner__shape {
+    position: absolute;
+    transform: translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0))
+}
+
+.ctaBanner__background-shapes {
+    inset: 0;
+    position: absolute;
+    z-index: 0
+}
+
+.ctaBanner__background-shape-1 {
+    display: none;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__background-shape-1 {
+        --translate-x: 200%;
+        --translate-y: -95%;
+        bottom: 0;
+        display: block;
+        right: 50%
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__background-shape-1 {
+        --translate-x: -75%;
+        --translate-y: -100%;
+        bottom: initial;
+        right: 0;
+        top: 50%
+    }
+}
+
+@media(min-width: 90em) {
+    .ctaBanner__background-shape-1 {
+        --translate-x: 0%
+    }
+}
+
+.ctaBanner__background-shape-2 {
+    --translate-x: 50%;
+    --translate-y: -90%;
+    bottom: 0;
+    left: 50%;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__background-shape-2 {
+        --translate-x: -100%;
+        --translate-y: -100%;
+        left: initial;
+        right: 0
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__background-shape-2 {
+        --translate-x: 475%;
+        right: 50%
+    }
+}
+
+.ctaBanner__background-shape-3 {
+    display: none;
+    width: 5.375rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__background-shape-3 {
+        --translate-x: 225%;
+        --translate-y: 20%;
+        display: block;
+        left: 0;
+        top: 0
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__background-shape-3 {
+        --translate-x: 55%;
+        --translate-y: 85%
+    }
+}
+
+@media(min-width: 80em) {
+    .ctaBanner__background-shape-3 {
+        --translate-x: 100%;
+        --translate-y: 110%
+    }
+}
+
+@media(min-width: 90em) {
+    .ctaBanner__background-shape-3 {
+        --translate-x: 50%
+    }
+}
+
+.ctaBanner__background-shape-4 {
+    --translate-x: 75%;
+    --translate-y: 75%;
+    left: 0;
+    top: 0;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__background-shape-4 {
+        --translate-y: 150%
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__background-shape-4 {
+        --translate-x: 280%;
+        --translate-y: 65%
+    }
+}
+
+@media(min-width: 80em) {
+    .ctaBanner__background-shape-4 {
+        --translate-x: 400%;
+        --translate-y: 80%
+    }
+}
+
+@media(min-width: 90em) {
+    .ctaBanner__background-shape-4 {
+        --translate-x: 300%
+    }
+}
+
+.ctaBanner__foreground-shapes {
+    grid-column: 1/-1;
+    inset: 0;
+    position: absolute
+}
+
+.ctaBanner__foreground-shape-1 {
+    --translate-x: -115%;
+    --translate-y: 75%;
+    left: 0;
+    top: 0;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__foreground-shape-1 {
+        --translate-x: -50%;
+        --translate-y: -100%;
+        bottom: 0;
+        top: initial;
+        transform: translateX(-50%) translateY(-100%)
+    }
+}
+
+.ctaBanner__foreground-shape-2 {
+    --translate-x: -10%;
+    --translate-y: -66%;
+    right: 0;
+    top: 0;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__foreground-shape-2 {
+        --translate-x: -200%
+    }
+}
+
+.ctaBanner__foreground-shape-3 {
+    --translate-x: 100%;
+    --translate-y: -200%;
+    bottom: 0;
+    right: 0;
+    width: 5.375rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__foreground-shape-3 {
+        --translate-x: 70%
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__foreground-shape-3 {
+        --translate-x: 50%
+    }
+}
+
+.ctaBanner__foreground-shape-4 {
+    --translate-x: 25%;
+    --translate-y: 125%;
+    bottom: 0;
+    left: 0;
+    width: 4.625rem
+}
+
+@media(min-width: 37.5em) {
+    .ctaBanner__foreground-shape-4 {
+        --translate-x: 125%;
+        --translate-y: 50%
+    }
+}
+
+@media(min-width: 60em) {
+    .ctaBanner__foreground-shape-4 {
+        --translate-x: 275%
+    }
+}
+
+@media(min-width: 80em) {
+    .ctaBanner__foreground-shape-4 {
+        --translate-x: 450%
+    }
+}
+
+.ctaBanner__wrapper {
+    z-index: 1
+}
+
+.ctaBanner__wrapper>* {
+    grid-row: 1/span 1
+}
+
+/*# sourceMappingURL=ctaBanner.css.map */

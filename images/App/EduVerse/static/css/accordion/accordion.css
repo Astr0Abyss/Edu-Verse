@@ -1,0 +1,129 @@
+.accordion__content {
+    row-gap: var(--space-4)
+}
+
+.accordion__content>* {
+    grid-column: 1/-1
+}
+
+.accordion__items {
+    --stack-spacing: var(--space-fixed-4)
+}
+
+@media(min-width: 60em) {
+    .accordion__items {
+        grid-column-end: span 9
+    }
+}
+
+@media(min-width: 60em) {
+    .accordion__lockup+.accordion__items {
+        grid-column: 7/-1
+    }
+}
+
+.accordion__item {
+    --column-gap: var(--space-fixed-2);
+    --icon-size: 2rem;
+    grid-column: 1/-1
+}
+
+@media(min-width: 60em) {
+    .accordion__item {
+        --column-gap: var(--space-fixed-3)
+    }
+}
+
+.accordion__item::marker {
+    display: none
+}
+
+.accordion__title {
+    align-items: flex-start;
+    column-gap: var(--column-gap);
+    cursor: pointer;
+    display: flex;
+    transition: color var(--trs-time) var(--trs-tfunc)
+}
+
+.accordion__title::marker,
+.accordion__title::-webkit-details-marker {
+    display: none
+}
+
+.accordion__icon {
+    margin-top: calc((var(--fz-subhead-1)*var(--lh-subhead-1) - var(--icon-size))/2)
+}
+
+.accordion__icon--open {
+    display: flex
+}
+
+.accordion__item[open] .accordion__icon--open {
+    display: none
+}
+
+.accordion__icon--close {
+    color: var(--color-button-secondary-background);
+    display: none;
+    position: relative
+}
+
+.accordion__item[open] .accordion__icon--close {
+    display: flex
+}
+
+.accordion__icon--close::after {
+    --size: calc(var(--icon-size) * 0.5);
+    background-color: var(--color-button-secondary-color);
+    content: "";
+    display: block;
+    height: var(--size);
+    inset: calc(var(--icon-size)*.25);
+    position: absolute;
+    width: var(--size);
+    z-index: 0
+}
+
+.accordion__icon svg {
+    height: var(--icon-size);
+    width: var(--icon-size)
+}
+
+.accordion__icon--close svg {
+    position: relative;
+    z-index: 10
+}
+
+.accordion__text {
+    padding-block-start: var(--space-fixed-4);
+    padding-inline-start: calc(var(--column-gap) + var(--icon-size))
+}
+
+.accordion__text .text>:first-child {
+    margin: 0
+}
+
+.accordion__text .text .btn {
+    margin-top: var(--space-gutter-v, 1.5em)
+}
+
+.accordion__text .text {
+    grid-column: auto/span 5
+}
+
+@media(max-width: 37.4375em) {
+    .accordion__text .text {
+        grid-column: 1/-1;
+        order: 1
+    }
+}
+
+@media(min-width: 60em) {
+    .accordion__lockup {
+        align-self: start;
+        grid-column: 1/span 5
+    }
+}
+
+/*# sourceMappingURL=accordion.css.map */

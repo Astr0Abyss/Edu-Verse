@@ -1,0 +1,51 @@
+.banner {
+    background-color: var(--color-surface-background);
+    color: var(--color-surface-color)
+}
+
+.banner__body {
+    font-size: 1.25rem;
+    grid-column: 1/-1;
+    text-align: center
+}
+
+@media(min-width: 80em) {
+    .banner__body {
+        font-size: 1.375rem;
+        grid-column: 1/span 7;
+        text-align: initial
+    }
+}
+
+.banner__content {
+    column-gap: var(--space-fixed-5);
+    display: grid;
+    row-gap: 3rem
+}
+
+@media(min-width: 80em) {
+    .banner__content {
+        align-items: center;
+        grid-template-columns: 1fr auto
+    }
+}
+
+.banner__cta {
+    grid-column: 1/-1;
+    justify-self: stretch
+}
+
+@media(min-width: 37.5em) {
+    .banner__cta {
+        justify-self: center
+    }
+}
+
+@media(min-width: 80em) {
+    .banner__cta {
+        grid-column: 9/span 4;
+        justify-self: end
+    }
+}
+
+/*# sourceMappingURL=banner.css.map */
